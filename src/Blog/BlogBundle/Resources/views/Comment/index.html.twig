@@ -1,0 +1,21 @@
+
+{% for comment in comments %}
+    <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
+
+        <header>
+            <div class="row">
+                <div class="col-md-12" style="background: #ecf0f0">
+                    <p><span class="highlight"><b>{{ comment.user }}</b></span> оставил запись
+                        <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('d. m. Y') }}
+                            в {{ comment.created|date('H:i') }}</time></p>
+                </div>
+
+            </div>
+        </header>
+        <blockquote>
+        <p>{{ comment.comment }}</p>
+        </blockquote>
+    </article>
+{% else %}
+    <p>Комментариев к этой записи нет. Твой будет первым!</p>
+{% endfor %}

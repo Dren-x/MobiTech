@@ -1,0 +1,14 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+<form action="{{ path('BlogBlogBundle_comment_create', { 'blog_id' : comment.blog.id } ) }}" method="post" {{ form_enctype(form) }} class="blog">
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_widget(form) }}
+            <p>
+                <button type="submit" class="btn btn-default">
+                    ОТПРАВИТЬ
+                    </button>
+            </p></div>
+
+    </div>
+
+</form>

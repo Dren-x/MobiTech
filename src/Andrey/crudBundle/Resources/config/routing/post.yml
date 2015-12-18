@@ -1,0 +1,30 @@
+post:
+    path:     /
+    defaults: { _controller: "AndreycrudBundle:Post:index" }
+
+post_show:
+    path:     /{id}/show
+    defaults: { _controller: "AndreycrudBundle:Post:show" }
+
+post_new:
+    path:     /new
+    defaults: { _controller: "AndreycrudBundle:Post:new" }
+
+post_create:
+    path:     /create
+    defaults: { _controller: "AndreycrudBundle:Post:create" }
+    methods:  POST
+
+post_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AndreycrudBundle:Post:edit" }
+
+post_update:
+    path:     /{id}/update
+    defaults: { _controller: "AndreycrudBundle:Post:update" }
+    methods:  [POST, PUT]
+
+post_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AndreycrudBundle:Post:delete" }
+    methods:  [POST, DELETE]

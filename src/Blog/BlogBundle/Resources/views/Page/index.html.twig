@@ -1,0 +1,28 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    {% for blog in blogs %}
+        <article class="blog">
+           {# <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>#}
+            <header>
+                <h2><a href="{{ path('BlogBlogBundle_blog_show', { 'id': blog.id }) }}">{{ blog.title }}</a></h2>
+            </header>
+
+           {# <img src="{{ asset(['images/', blog.image]|join) }}" />#}
+            <div class="snippet">
+                <p>{{ blog.blog(700) }}</p>
+                <p class="continue"><a href="{{ path('BlogBlogBundle_blog_show', { 'id': blog.id }) }}">Читать полностью...</a></p>
+            </div>
+
+            <footer class="meta">
+                <small class="post-meta" >Тэги: <span class="highlight">{{ blog.tags }}</span></small>
+                </br>
+                <small class="post-meta" >Источник: <span class="highlight">{{ blog.author }}</span></small>
+                </br>
+                <small class="post-meta" >Опубликовано: <span class="highlight">{{ blog.created|date('d.m.y') }} в {{ blog.created|date('H:i') }}</span></small>
+            </footer>
+        </article>
+    {% else %}
+        <p>There are no blog entries for symblog</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+  "name": "Mobitnew",
+  "homepage": "https://github.com/Dren-x/mobitnew",
+  "authors": [
+    "Andrey <Dren-x@yandex.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}

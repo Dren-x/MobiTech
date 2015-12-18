@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block body -%}
+    <h1>Post creation</h1>
+
+    {{ form(form) }}
+    {{ form_rest(form) }}
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('post') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

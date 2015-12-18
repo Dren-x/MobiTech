@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+{% form_theme delete_form 'bootstrap_3_layout.html.twig' %}
+{% block body %}
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <h1>
+            <tr>
+                <td>{{ entity.title }}</td>
+            </tr>
+        </h1>
+        <p>
+            <tr>
+                <td>{{ entity.blog }}</td>
+            </tr>
+        </p>
+        <small>
+            <tr>
+                <th>Тэги: </th>
+                <td>{{ entity.tags }}</td>
+            </tr>
+            </br>
+            <tr>
+                <th>Источник: </th>
+                <td>{{ entity.author }}</td>
+            </tr>
+            </br>
+            <tr>
+                <th>Опубликовано: </th>
+                <td>{{ entity.created|date('d.m.y') }} в {{ entity.created|date('H:i') }}</td>
+            </tr>
+            </br>
+            </br>
+        </small>
+    {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('blog_edit', { 'id': entity.id }) }}"class="pull-left  btn btn-default">
+                Редактировать
+            </a>
+                {{ form(delete_form) }}
+                </br>
+                </br>
+    {% endif %}
+</div>
+</div>
+
+<section class="comments" id="comments">
+    <section class="previous-comments">
+        <h3>Комментарии</h3>
+
+        {% include 'BlogBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+    </section>
+    {% if is_granted('ROLE_USER') %}
+    <h3>Добавить комментарий</h3>
+
+    {{ render(controller( 'BlogBlogBundle:Comment:new', { 'entity_id': entity.id } )) }}
+</section>
+
+{% else %}
+<div class="alert alert-warning">
+  Чтобы оставлять комментарии необходимо <a href="{{ path('BlogBlogBundle_register') }}">зарегистрироваться</a>
+</div>
+{% endif %}
+</body>
+
+{% endblock %}

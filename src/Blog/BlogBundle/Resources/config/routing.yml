@@ -1,0 +1,47 @@
+BlogBlogBundle_homepage:
+    path:  /
+    defaults: { _controller: BlogBlogBundle:Page:index }
+    requirements:
+      methods:  GET
+BlogBlogBundle_contact:
+    path:  /contact
+    defaults: { _controller: BlogBlogBundle:Page:contact }
+    requirements:
+      methods:  GET
+BlogBlogBundle_blog_show:
+    path:  /{id}
+    defaults: { _controller: BlogBlogBundle:Blog:show }
+    requirements:
+        methods:  GET
+        id: \d+
+BlogBlogBundle_about:
+    path:  /about
+    defaults: { _controller: BlogBlogBundle:Page:about }
+    requirements:
+        methods:  GET
+BlogBlogBundle_comment_create:
+    path:  /comment/{blog_id}
+    defaults: { _controller: BlogBlogBundle:Comment:create }
+    requirements:
+        methods:  POST
+        blog_id: \d+
+BlogBlogBundle_register:
+    path:  /register
+    defaults: { _controller: FOSUserBundle:Registration:register }
+    requirements:
+        methods:  POST
+BlogBlogBundle_login:
+    path:  /login
+    defaults: { _controller: FOSUserBundle:Security:login}
+    requirements:
+        methods:  POST
+BlogBlogBundle_createnews:
+    path:  /createnews
+    defaults: { _controller: BlogBlogBundle:Blog:new}
+    requirements:
+        methods:  POST
+BlogBlogBundle_list:
+    path:  /list
+    defaults: { _controller: BlogBlogBundle:Blog:index}
+    requirements:
+        methods:  POST

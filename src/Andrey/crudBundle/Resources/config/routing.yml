@@ -1,0 +1,7 @@
+andreycrud_post:
+    resource: "@AndreycrudBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+andreycrud_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AndreycrudBundle:Default:index }
