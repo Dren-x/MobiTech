@@ -51,6 +51,7 @@
     </section>
     {% if is_granted('ROLE_USER') %}
     <h3>Добавить комментарий</h3>
+    </br>
 
     {{ render(controller( 'BlogBlogBundle:Comment:new', { 'entity_id': entity.id } )) }}
 </section>

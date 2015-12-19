@@ -6,6 +6,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 
+
 /**
  * @ORM\Entity(repositoryClass="Blog\BlogBundle\Entity\Repository\CommentRepository")
  * @ORM\Table(name="comment")

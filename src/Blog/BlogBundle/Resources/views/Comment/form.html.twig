@@ -1,9 +1,11 @@
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
-<form action="{{ path('BlogBlogBundle_comment_create', { 'blog_id' : comment.blog.id } ) }}" method="post" {{ form_enctype(form) }} class="blog">
+<form action="{{ path('BlogBlogBundle_comment_create', { 'blog_id' : comment.blog.id } ) }}" method="post" {{ form_start(form) }}
     <div class="row">
         <div class="col-md-6">
+            {{ form_widget(form.user, { 'attr': {'class': 'hidden'} }) }}
             {{ form_widget(form) }}
-            <p>
+
+           <p>
                 <button type="submit" class="btn btn-default">
                     ОТПРАВИТЬ
                     </button>
