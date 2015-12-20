@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% form_theme delete_form 'bootstrap_3_layout.html.twig' %}
 {% block body %}
-<body>
+<body xmlns="http://www.w3.org/1999/html">
 <div class="row">
     <div class="col-md-12">
         <h1>
@@ -50,11 +50,14 @@
         {% include 'BlogBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
     </section>
     {% if is_granted('ROLE_USER') %}
+
     <h3>Добавить комментарий</h3>
     </br>
 
     {{ render(controller( 'BlogBlogBundle:Comment:new', { 'entity_id': entity.id } )) }}
+
 </section>
+
 
 {% else %}
 <div class="alert alert-warning">

@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new Blog\BlogBundle\BlogBlogBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Andrey\crudBundle\AndreycrudBundle(),
 
 
         );

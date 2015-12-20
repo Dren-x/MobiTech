@@ -1,48 +1,27 @@
 {% extends '::base.html.twig' %}
-
 {% block body -%}
-
-
     <table class="table table table-hover table table-condensed">
         <thead>
-
             <tr>
-
                 <th>Название новости</th>
-
                 <th>Источник</th>
-
-
                 <th>Дата</th>
-
-
             </tr>
-
         </thead>
+
         <tbody>
         {% for entity in entities %}
             <tr>
-
                 <td>{{ entity.title }}</td>
                 <td>{{ entity.author }}</td>
-
-
-
                 <td>{% if entity.created %}{{ entity.created|date('d.m.y H:i') }}{% endif %}</td>
-
                 <td>
-                    <div class="btn-group-vertical">
+            <div class="btn-group-vertical">
                 <ul>
-
-                        <a href="{{ path('blog_show', { 'id': entity.id }) }}"class="btn btn-default ">Просмотр</a>
-
-                        <a href="{{ path('blog_edit', { 'id': entity.id }) }}"class="btn btn-default">Изменить</a>
-
-
-
+                    <a href="{{ path('blog_show', { 'id': entity.id }) }}"class="btn btn-default ">Просмотр</a>
+                    <a href="{{ path('blog_edit', { 'id': entity.id }) }}"class="btn btn-default">Изменить</a>
                 </ul>
-                    </div>
-
+            </div>
                 </td>
             </tr>
         {% endfor %}
